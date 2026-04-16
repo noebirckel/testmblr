@@ -30,201 +30,6 @@
     .shadow-hover:hover{box-shadow:0 4px 16px rgba(0,0,0,0.1)!important;transform:translateY(-1px);}
     button{transition:all 0.15s ease;}
   </style>
-
-<!-- ========================================== -->
-<!-- 🎨 THEME PREMIUM DARK MODE (MBLR)          -->
-<!-- ========================================== -->
-<style>
-/* GLOBAL SETTINGS */
-body, .premium-canvas {
-    background-color: #09090b !important;
-    background-image: 
-        radial-gradient(circle at top left, rgba(59,130,246,0.06), transparent 40%),
-        radial-gradient(circle at bottom right, rgba(168,85,247,0.06), transparent 40%) !important;
-    color: #FAFAFA !important;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-}
-
-/* CARDS RE-DESIGN */
-.premium-card {
-    background-color: rgba(24, 24, 27, 0.7) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5), 
-                0 10px 15px -3px rgba(0,0,0,0.4), 
-                inset 0 1px 0 rgba(255,255,255,0.05) !important;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease, border-color 0.2s ease !important;
-}
-.premium-card:hover {
-    transform: translateY(-2px) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 12px 20px -3px rgba(0,0,0,0.6), 
-                0 24px 30px -5px rgba(0,0,0,0.5), 
-                inset 0 1px 0 rgba(255,255,255,0.08) !important;
-}
-
-/* TYPOGRAPHY */
-.premium-text-strong, h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF !important;
-    font-weight: 600 !important;
-    letter-spacing: -0.02em !important;
-}
-.premium-text-muted {
-    color: #A1A1AA !important; /* Zinc-400 */
-}
-
-/* MAIN H1 (Title) */
-h1 {
-    background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.04em !important;
-}
-
-/* BORDERS */
-.premium-border {
-    border-color: rgba(255, 255, 255, 0.1) !important;
-}
-[style*="borderBottom"], [style*="border-bottom"] {
-    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* INPUTS, SELECTS, TEXTAREAS */
-input, select, textarea {
-    background-color: rgba(0, 0, 0, 0.45) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: #FFFFFF !important;
-    border-radius: 12px !important;
-    font-family: inherit !important;
-    padding: 12px 14px !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2) !important;
-}
-input:focus, select:focus, textarea:focus {
-    border-color: #3B82F6 !important;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2), inset 0 2px 4px rgba(0,0,0,0.2) !important;
-    outline: none !important;
-    background-color: rgba(0, 0, 0, 0.6) !important;
-}
-
-/* BUTTONS */
-button {
-    border-radius: 10px !important;
-    font-weight: 600 !important;
-    font-family: inherit !important;
-    letter-spacing: 0.01em !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-button:hover {
-    filter: brightness(1.15) !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-}
-button:active {
-    transform: scale(0.97) !important;
-    filter: brightness(0.9) !important;
-}
-
-/* OVERRIDE FOR TABLE/LIST DECORATIONS */
-table td {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
-tr:hover td {
-    background-color: rgba(255, 255, 255, 0.02) !important;
-}
-
-/* AVATARS / ICON WRAPPERS */
-.premium-icon-box {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1) !important;
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    background-color: rgba(24,24,27,0.5) !important;
-}
-
-/* CUSTOM SCROLLBAR FOR WEB-KIT */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-</style>
-
-<script>
-// ✨ DÉCORATEUR AESTHETIQUE - SANS IMPACT LOGIQUE
-document.addEventListener("DOMContentLoaded", () => {
-    const processNode = (node) => {
-        if (node.nodeType !== 1) return; // Only Elements
-        
-        let el = node;
-        
-        if (el.style) {
-            // Identifier les "Cartes" via leurs fonds clairs d'origine
-            let bg = el.style.background || el.style.backgroundColor;
-            if (bg) {
-                if (bg.includes('255, 255, 255') || bg.includes('#FFFFFF') || bg.includes('#ffffff') || bg === 'white') {
-                    el.classList.add('premium-card');
-                }
-                if (bg.includes('241, 245, 249') || bg.includes('#F1F5F9')) {
-                    el.classList.add('premium-canvas');
-                }
-            }
-
-            // Textes profonds d'origine
-            let color = el.style.color;
-            if (color) {
-                if (color.includes('15, 23, 42') || color.includes('30, 41, 59') || color.includes('#0F172A') || color.includes('#1E293B')) {
-                    el.classList.add('premium-text-strong');
-                }
-                if (color.includes('100, 116, 139') || color.includes('148, 163, 184') || color.includes('#64748B') || color.includes('#94A3B8')) {
-                    el.classList.add('premium-text-muted');
-                }
-            }
-
-            // Bordures
-            let border = el.style.border || el.style.borderColor || el.style.borderBottom || el.style.borderTop;
-            if (border && (border.includes('226, 232, 240') || border.includes('#E2E8F0'))) {
-                el.classList.add('premium-border');
-            }
-            
-            // Icon boxes on Login (specific match)
-            let boxShadow = el.style.boxShadow;
-            if (el.tagName === 'DIV' && el.style.width === '96px' && boxShadow && boxShadow.includes('rgba(59,130,246')) {
-                el.classList.add('premium-icon-box');
-                el.style.background = 'transparent'; // Remove old gradient that breaks dark mode
-            }
-        }
-        
-        if (node.children && node.children.length > 0) {
-            for (let i = 0; i < node.children.length; i++) {
-                processNode(node.children[i]);
-            }
-        }
-    };
-
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach(m => {
-            if (m.addedNodes.length > 0) {
-                m.addedNodes.forEach(node => processNode(node));
-            }
-        });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-    // Process initial DOM
-    processNode(document.body);
-});
-</script>
 </head>
 <body>
   <div id="root"></div>
@@ -27029,6 +26834,7 @@ function VentesTab({
   marqueConfigs,
   reonicMapping,
   onVenteSaved,
+  onVenteUpdated,
   onDeleteVente
 }) {
   const CABLES = stock.filter(s => s.unite === "ml");
@@ -27374,6 +27180,7 @@ function VentesTab({
     };
     if (editId) {
       setVentes(p => p.map(v => v.id === editId ? entry : v)); // setVentes = SV → persiste
+      if (onVenteUpdated) onVenteUpdated(entry); // sync chantier associé
     } else {
       setVentes(p => [entry, ...p]); // setVentes = SV → persiste
       if (onVenteSaved) onVenteSaved(entry);
@@ -35529,6 +35336,26 @@ function App() {
     installConfigs: installConfigs,
     marqueConfigs: marqueConfigs,
     reonicMapping: reonicMapping,
+    onVenteUpdated: v => {
+      // Synchronise les composants du chantier associé quand une vente est modifiée
+      SC2(prev => {
+        const updated = prev.map(ch => {
+          if (String(ch.vente_id) !== String(v.id)) return ch;
+          const patch = {
+            materiels: v.materiels || [],
+            cables: v.cables || [],
+            client: v.client,
+            adresse: v.adresse || ch.adresse,
+            duree_chantier: v.duree_chantier || ch.duree_chantier
+          };
+          sb.from("chantiers").update(patch).eq("id", ch.id).then(({ error }) => {
+            if (error) console.error("[VenteUpdate] sync chantier:", error.message);
+          });
+          return { ...ch, ...patch };
+        });
+        return updated;
+      });
+    },
     onVenteSaved: v => {
       SC2(p => [{
         id: Date.now(),
